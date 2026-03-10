@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RiddleRush — Brain teasers for you and your friends. Play solo, daily riddles, or compete in group games.">
+    <title>RiddleRush — Brain Teasers & Riddle Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <style>
+        :root {
+            --deep-navy: #0B2239;
+            --ocean-blue: #0E5A7A;
+            --water-blue: #1796C9;
+            --seafoam: #BFE9F2;
+            --mist-white: #F4FBFD;
+            --pale-blue: #DFF6FF;
+            --soft-blue: #EAF8FD;
+            --coral: #E07A5F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(165deg, var(--mist-white) 0%, var(--pale-blue) 50%, #2F7FA3 100%);
+            min-height: 100vh;
+            color: var(--deep-navy);
+            line-height: 1.6;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 64px;
+            text-align: center;
+        }
+        .logo-wrap {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+        .logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(11, 34, 57, 0.15);
+            object-fit: cover;
+        }
+        .logo-placeholder {
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--water-blue));
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            box-shadow: 0 12px 40px rgba(11, 34, 57, 0.15);
+        }
+        .logo-wrap.use-placeholder .logo { display: none; }
+        .logo-wrap.use-placeholder .logo-placeholder { display: flex; }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            font-size: 1.125rem;
+            color: var(--ocean-blue);
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 32px rgba(11, 34, 57, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .hero-card h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--deep-navy);
+        }
+        .features {
+            display: grid;
+            gap: 20px;
+        }
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--seafoam), var(--soft-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--deep-navy);
+        }
+        .feature p {
+            font-size: 0.9375rem;
+            color: var(--deep-navy);
+            opacity: 0.75;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 48px 0 64px;
+        }
+        .app-store-badge {
+            display: inline-block;
+            height: 50px;
+            margin-top: 16px;
+            transition: transform 0.2s;
+        }
+        .app-store-badge:hover { transform: scale(1.03); }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 32px 0;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--ocean-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--deep-navy); }
+        footer {
+            text-align: center;
+            padding: 32px 0 48px;
+            font-size: 0.875rem;
+            color: var(--deep-navy);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-wrap">
+                <img src="assets/icon.png" alt="RiddleRush" class="logo" onerror="this.parentElement.classList.add('use-placeholder')">
+                <div class="logo-placeholder">🧩</div>
+            </div>
+            <h1>RiddleRush</h1>
+            <p class="tagline">Brain teasers for you and your friends</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero-card">
+            <h2>Solve riddles. Challenge friends. Tease your brain.</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎮</div>
+                    <div>
+                        <h3>Play Solo</h3>
+                        <p>10 rounds of brain teasers. Reveal answers when you're stuck.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <div>
+                        <h3>Daily Riddle</h3>
+                        <p>New riddle every day. Play continuously with unlimited next riddles.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div>
+                        <h3>Group Game</h3>
+                        <p>Create rooms, invite friends, compete with a 25-second timer per turn.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <div>
+                        <h3>400+ Riddles</h3>
+                        <p>Logic puzzles and trick questions. Achievements and scoreboards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <p style="font-size: 1.125rem; margin-bottom: 8px;">Download on the App Store</p>
+            <a href="https://apps.apple.com/app/riddlerush" target="_blank" rel="noopener">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge" height="50">
+            </a>
+        </div>
+    </main>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </nav>
+
+    <footer>
+        <p>© 2026 RiddleRush. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
